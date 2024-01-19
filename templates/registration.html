@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+<style>
+    h1
+    {
+        color: brown;
+    }
+    body
+    {
+        background-color: aqua;
+    }
+</style>
+<body>
+    <center>
+        <h1>Registration Form</h1>
+        <form method="POST">
+            {% csrf_token %}
+
+                {{uf.as_p}}
+                {{pf.as_p}}
+            <input type="submit" value="Register">
+        </form>
+    </center>
+</body>
+</html>
