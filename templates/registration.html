@@ -18,7 +18,7 @@
 <body>
     <center>
         <h1>Registration Form</h1>
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
 
                 {{uf.as_p}}
@@ -28,3 +28,6 @@
     </center>
 </body>
 </html>
+
+
+
