@@ -9,4 +9,4 @@ class Profile(models.Model):
     Profile_pic=models.ImageField()
 
     def __str__(self):
-        return self.username
+        return self.address

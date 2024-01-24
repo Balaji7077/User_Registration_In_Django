@@ -10,17 +10,29 @@
 {% block title %}
     <title>Hello, world!</title>
 {% endblock %}
+
   </head>
   <body>
     <center>
-    <nav class="nav" style="background-color: black;">
-        <a href="{% url 'admin:index' %}" class="nav-link">Admin Page</a>
-        <a href="{% url 'home' %}" class="nav-link">Home Page</a>
-        <a href="{% url 'registration' %}" class="nav-link">Registration Page</a>
-        <a href="{% url 'user_login' %}" class="nav-link">user_login</a>
-    
-    
-      </nav>
+        <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+            <a class="navbar-brand" href="{% url 'home' %}">Home</a>
+            <a class="navbar-brand" href="{% url 'admin:index' %}">Admin</a>
+            <a class="navbar-brand" href="{% url 'registration' %}">Registration</a>
+        
+            <div class="navbar-collapse justify-content-end">
+              {% if user.is_authenticated %}
+                <a class="navbar-brand" href="{% url 'profile_display' %}">
+                <img src="{{ user.profile.Profile_pic.url }}" alt="Profile Picture" class="rounded-circle" style="width: 30px; height: 30px; margin-right: 5px;">
+                UserProfile
+                </a>
+                <a class="navbar-brand" href="{% url 'user_logout' %}">Logout</a>
+              {% else %}
+                <a class="navbar-brand" href="{% url 'user_login' %}">Login</a>
+              {% endif %}
+            </div>
+        </nav>
+        <!-- Image and text -->
+        
     
 {% block body_block %}
 
