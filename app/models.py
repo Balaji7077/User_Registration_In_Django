@@ -7,6 +7,6 @@ class Profile(models.Model):
     username=models.OneToOneField(User,on_delete=models.CASCADE)
     address=models.TextField()
     Profile_pic=models.ImageField()
-
+    otp = models.CharField(max_length=6, blank=True, null=True)
     def __str__(self):
         return self.address

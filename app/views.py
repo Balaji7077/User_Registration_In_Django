@@ -78,6 +78,13 @@ def change_password(request):
         UO=User.objects.get(username=username)
         UO.set_password(pw)
         UO.save()
+
+        send_mail('change_password',
+                      'Your Password Has been Changed Successfully',
+                      'lovies23july2023@gmail.com',
+                      [UO.email],
+                      fail_silently=False,
+                      )
         return HttpResponse('password is changed successfully ')
     return render(request,'change_password.html')
 
@@ -85,11 +92,21 @@ def reset_password(request):
     if request.method=='POST':
         username=request.POST['un']
         password=request.POST['pw']
+
         LUO=User.objects.filter(username=username)
         if LUO:
-            LUO.set_password(password)
-            LUO.save()
+            UO=LUO[0]
+            UO.set_password(password)
+            UO.save()
+
+            send_mail('reset_password',
+                      'Your Password Has Changed Successfully',
+                      'lovies23july2023@gmail.com',
+                      [UO.email],
+                      fail_silently=False,
+                      )
             return HttpResponse('reset is done')
         else:
-            return HttpResponse('invalid creditional')
+            return HttpResponse('U r Username is not in our DataBase')
+
     return render(request,'reset_password.html')

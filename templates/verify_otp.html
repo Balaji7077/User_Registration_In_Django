@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    <title>otp  Page</title>
+
+{% endblock %}
+
+
+{% block body_block %}
+
+<form method="post" action="{% url 'verify_otp' %}">
+    {% csrf_token %}
+    <input type="hidden" name="username" value="{{ username }}">
+    <input type="hidden" name="email" value="{{ email }}">
+    <label for="otp">OTP:</label>
+    <input type="text" id="otp" name="otp" required>
+    <button type="submit">Verify OTP</button>
+</form>
