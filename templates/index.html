@@ -25,9 +25,11 @@
                 <img src="{{ user.profile.Profile_pic.url }}" alt="Profile Picture" class="rounded-circle" style="width: 30px; height: 30px; margin-right: 5px;">
                 UserProfile
                 </a>
+                <a class="navbar-brand" href="{% url 'change_password' %}">change_password</a>
                 <a class="navbar-brand" href="{% url 'user_logout' %}">Logout</a>
               {% else %}
                 <a class="navbar-brand" href="{% url 'user_login' %}">Login</a>
+
               {% endif %}
             </div>
         </nav>

@@ -9,15 +9,42 @@
 {% block body_block %}
 <h1>Fill The Deatils To Login</h1>
 
+<style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        h1 {
+            font-weight: bold;
+            color: #000000;
+            text-align: center;
+        }
+        label {
+            font-weight: bold;
+            color: #555;
+        }
+        input {
+            margin-bottom: 15px;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+        }
+    </style>
+
+
 <form method="POST">
     {% csrf_token %}
     <label for="un">UserName:</label>
-    <input type="text" name="un" id="un"><br><br>
+    <input type="text" name="un" id="un" placeholder="Enter Your Username"><br><br>
 
     <label for="pw">PassWord</label>
-    <input type="password" name="pw" id="pw"><br><br>
+    <input type="password" name="pw" id="pw" placeholder="Enter Your PassWord"><br><br>
 
     <input type="submit" value="user_login" class="btn btn-primary">
 </form>
 
-{% endblock %}.
+<a href="{% url 'reset_password' %}" class="btn btn-secondary">reset_password</a>
+
+
+{% endblock %}
