@@ -2,49 +2,99 @@
 
 {% block title %}
     <title>Login Page</title>
-
 {% endblock %}
 
-
 {% block body_block %}
-<h1>Fill The Deatils To Login</h1>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h1>Welcome To Login</h1>
+                </div>
+                <div class="card-body">
 
-<style>
-        body {
-            background-color: #f8f9fa;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        h1 {
-            font-weight: bold;
-            color: #000000;
-            text-align: center;
-        }
-        label {
-            font-weight: bold;
-            color: #555;
-        }
-        input {
-            margin-bottom: 15px;
-        }
-        button {
-            background-color: #007bff;
-            color: #fff;
-        }
-    </style>
+                    <style>
+                        body {
+                            background-color: rgb(214, 214, 214);
+                            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                        }
+                        .card {
+                            margin: 35px;
+                            padding: 20px;
+                            border-radius: 10px;
+                            box-shadow: 0 4px 8px rgb(49, 47, 47);
+                            background-color: #ffffff;
+                        }
+                        h1 {
+                            font-weight: bold;
+                            color: #000000;
+                            text-align: center;
+                        }
+                        label {
+                            font-weight: bold;
+                            color: #555;
+                        }
+                        p
+                        {
+                            font-weight: bold;
+                            color: #555;
+                        }
+                        input {
+                            margin-bottom: 15px;
+                            width: 100%;
+                            padding: 10px;
+                            box-sizing: border-box;
+                        }
+                        button {
+                            display: block;
+                            background-color: #007bff;
+                            color: #fff;
+                            font-weight: bold;
+                            padding: 5px;
+                            border: 10px;
+                            cursor: pointer;
+                            width: 100%;
+                            box-sizing: border-box;
+                        }
+                        a.btn {
+                            display: -moz-box;
+                            background-color: #00c213;
+                            color: #fff;
+                            font-weight: bold;
+                            text-decoration: none;
+                            padding: 5px;
+                            text-align: center;
+                            border-radius: 5px;
+                            margin-top: 0px;
+                            
+                        }
+                    </style>
 
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="un">Username</label>
+                                    <input type="text" name="un" id="un" class="form-group" placeholder="Enter Your Username">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="pw">Password</label>
+                                    <input type="password" name="pw" id="pw" class="form-group" placeholder="Enter Your Password">
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </form>
 
-<form method="POST">
-    {% csrf_token %}
-    <label for="un">UserName:</label>
-    <input type="text" name="un" id="un" placeholder="Enter Your Username"><br><br>
-
-    <label for="pw">PassWord</label>
-    <input type="password" name="pw" id="pw" placeholder="Enter Your PassWord"><br><br>
-
-    <input type="submit" value="user_login" class="btn btn-primary">
-</form>
-
-<a href="{% url 'reset_password' %}" class="btn btn-secondary">reset_password</a>
-
-
+                    <p><a href="{% url 'reset_password' %}" >Forgot password?</a></p>
+                    {% if not user.is_authenticate %}
+                        <p>If you don't have an account </a></p>
+                        <a href="{% url 'registration' %}" class="btn btn-primary">Create new acount</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

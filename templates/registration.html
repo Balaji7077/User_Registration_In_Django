@@ -1,33 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Form</title>
+    <style>
+        body {
+            background-color: rgb(214, 214, 214);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card {
+            width: 400px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(4, 1, 1, 0.678);
+            background-color: rgb(250, 250, 250);
+        }
+
+        h1 {
+            color: rgb(0, 0, 0);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input[type="submit"] {
+            background-color: #3498db;
+            color: #fff;
+            padding: 12px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+        p {
+            text-align: center;
+            color: #555;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+        button {
+            background-color: #3498db;
+            color: #fff;
+            font-weight: bold;
+            padding: 12px;
+            border: none;
+            cursor: pointer;
+            width: 50%;
+            box-sizing: border-box;
+            margin-top: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #29ba3c;
+        }
+    </style>
 </head>
-<style>
-    h1
-    {
-        color: brown;
-    }
-    body
-    {
-        background-color: aqua;
-    }
-</style>
+
 <body>
-    <center>
-        <h1>Registration Form</h1>
+    <div class="card">
+        <h1>REGISTRATION FORM</h1>
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-
-                {{uf.as_p}}
-                {{pf.as_p}}
-            <input type="submit" value="Register">
+            {{uf.as_p}}
+            {{pf.as_p}}
+           
+            <p>By clicking Registration, you agree to our Terms, Privacy Policy and Cookies Policy. 
+            You may receive email notifications from us and can opt out at any time.</p>
+            <button type="submit" class="btn btn-primary">Register</button>
         </form>
-    </center>
+    </div>
 </body>
+
 </html>
-
-
-

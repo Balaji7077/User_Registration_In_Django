@@ -1,7 +1,7 @@
 {% extends 'index.html' %}
 
 {% block title %}
-    <title>Reset Password Page</title>
+    <title>OTP Verification</title>
 {% endblock %}
 
 {% block body_block %}
@@ -10,19 +10,19 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header bg-primary text-white text-center">
-                        <h1>Reset Password</h1>
+                        <h1>OTP Verification</h1>
                     </div>
                     <div class="card-body">
-                        <!-- reset_password.html -->
-                        <form method="POST" >
-                            {% csrf_token %}
-                            <label for="username">Enter your username:</label>
-                            <input type="text" name="username" required>
-                            <button type="submit">Send OTP</button>
-                        </form>
-                        {% if error %}
-                            <p>{{ error }}</p>
-                        {% endif %}
+                        <!-- otp.html -->
+                                <form method="POST" >
+                                    {% csrf_token %}
+                                    <label for="otp">Enter the OTP sent to your email:</label>
+                                    <input type="text" name="otp"  placeholder="Enter The OTP Here" required>
+                                    <button type="submit">Verify OTP</button>
+                                </form>
+                                {% if error %}
+                                    <p>{{ error }}</p>
+                                {% endif %}
 
                     </div>
                 </div>
@@ -39,7 +39,7 @@
         .card {
             border: none;
             border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(28, 26, 26, 0.829);
         }
 
         .card-header {
@@ -59,8 +59,7 @@
             color: #555;
         }
 
-        input[type="text"],
-        input[type="password"] {
+        input[type="text"] {
             padding: 10px;
             margin-bottom: 15px;
             width: 100%;
@@ -89,14 +88,14 @@
         }
         button {
                             display: block;
-                            background-color: #06691a;
+                            background-color: #d11414;
                             color: #fff;
                             font-weight: bold;
                             padding: 5px;
                             border: 10px;
                             cursor: pointer;
-                            width: 30%;
+                            width: 35%;
                             box-sizing: border-box;
-        }
+                        }
     </style>
 {% endblock %}
